@@ -1,0 +1,128 @@
+# 智能编程助手配置文件
+# Intelligent Programming Assistant Configuration
+
+# LLM配置
+llm:
+  provider: "openai"  # 支持: openai, anthropic, local
+  api_key: "your-api-key-here"
+  model: "gpt-4"
+  base_url: null  # 可选，用于自定义API端点
+  temperature: 0.7
+  max_tokens: 4000
+  timeout: 30
+
+# 推理引擎配置
+reasoning:
+  default_strategy: "auto"  # auto, basic, chain_of_thought, tree_of_thoughts
+  max_reasoning_steps: 10
+  confidence_threshold: 0.7
+  enable_reflection: true
+  enable_verification: true
+
+# 工具管理器配置
+tools:
+  max_parallel_tools: 3
+  tool_timeout: 60
+  enable_tool_caching: true
+  allowed_tools:
+    - code_generator
+    - code_analyzer
+    - debugger
+    - tester
+    - refactor
+
+# 记忆系统配置
+memory:
+  max_short_term_items: 100
+  max_long_term_items: 1000
+  compression_threshold: 0.8
+  semantic_search_enabled: true
+  memory_persistence: true
+  memory_file: "data/memory.json"
+
+# 协作系统配置
+collaboration:
+  enable_multi_agent: true
+  max_agents: 5
+  communication_timeout: 30
+  consensus_threshold: 0.6
+  available_roles:
+    - architect
+    - developer
+    - tester
+    - reviewer
+    - devops
+
+# 学习系统配置
+learning:
+  enable_learning: true
+  feedback_weight: 0.3
+  pattern_recognition_threshold: 0.7
+  learning_rate: 0.1
+  max_learning_history: 1000
+
+# 安全系统配置
+security:
+  enable_security_checks: true
+  vulnerability_scanning: true
+  code_injection_detection: true
+  sensitive_data_detection: true
+  max_code_size: 100000  # 字符数
+  allowed_file_types:
+    - .py
+    - .js
+    - .java
+    - .cpp
+    - .html
+    - .css
+
+# 领域专家配置
+domain_experts:
+  enabled_domains:
+    - python
+    - javascript
+    - java
+    - react
+    - django
+    - fastapi
+    - docker
+    - aws
+  knowledge_update_interval: 86400  # 秒
+
+# 评估系统配置
+evaluation:
+  enable_performance_monitoring: true
+  metrics_collection_interval: 60
+  quality_threshold: 0.8
+  performance_threshold: 5.0  # 秒
+  enable_user_feedback: true
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/assistant.log"
+  max_file_size: "10MB"
+  backup_count: 5
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} | {message}"
+
+# 数据存储配置
+storage:
+  data_directory: "data"
+  backup_enabled: true
+  backup_interval: 3600  # 秒
+  max_backups: 10
+
+# Web界面配置（可选）
+web:
+  enable_web_interface: false
+  host: "localhost"
+  port: 8000
+  debug: false
+  cors_enabled: true
+
+# 开发配置
+development:
+  debug_mode: false
+  profiling_enabled: false
+  test_mode: true
+  mock_llm: true
