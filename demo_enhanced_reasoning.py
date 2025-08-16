@@ -134,7 +134,7 @@ class MockLLM:
         }
         self.response_index = {key: 0 for key in self.responses.keys()}
 
-    async def acompletion(self, messages, **kwargs):
+    def completion(self, messages, **kwargs):
         """Mock completion method."""
         self.call_count += 1
 
@@ -202,6 +202,14 @@ class MockState:
                 self.content = content
 
         return [MockMessage(self.message_content)]
+    
+    def __iter__(self):
+        """Make history iterable."""
+        class MockMessage:
+            def __init__(self, content):
+                self.content = content
+
+        return iter([MockMessage(self.message_content)])
 
 
 def demo_enhanced_reasoning():
